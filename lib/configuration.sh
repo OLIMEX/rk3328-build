@@ -573,7 +573,7 @@ if [[ $BUILD_DESKTOP == "yes" ]]; then
 fi
 unset LOG_OUTPUT_FILE
 
-DEBIAN_MIRROR='deb.debian.org/debian'
+DEBIAN_MIRROR='archive.debian.org/debian'
 DEBIAN_SECURTY='security.debian.org/'
 UBUNTU_MIRROR='ports.ubuntu.com/'
 
