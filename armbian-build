@@ -1,0 +1,4 @@
+in userpatches/customize-image.sh -> Main -> buster:
+apt install -y media-buster-legacy-rk3328 --install-recommends
+
+./compile.sh docker BOARD=rk3328-olinuxino BRANCH=legacy RELEASE=buster BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base DESKTOP_APPGROUPS_SELECTED="browsers multimedia" COMPRESS_OUTPUTIMAGE=sha,gpg,img
