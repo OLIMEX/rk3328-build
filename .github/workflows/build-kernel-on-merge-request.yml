@@ -53,9 +53,9 @@ jobs:
     runs-on: "small"
     if: ${{ github.repository_owner == 'Armbian' }}
     steps:
-      - uses: geekyeggo/delete-artifact@v1
+      - uses: geekyeggo/delete-artifact@v2
         with:
           name: changes
-      - uses: geekyeggo/delete-artifact@v1
+      - uses: geekyeggo/delete-artifact@v2
         with:
           name: hash
