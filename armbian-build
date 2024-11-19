@@ -1,0 +1,11 @@
+./compile.sh \
+  BOARD=rk3328-som \
+  BRANCH=current \
+  BUILD_DESKTOP=yes \
+  BUILD_MINIMAL=no \
+  KERNEL_CONFIGURE=no \
+  DESKTOP_ENVIRONMENT=xfce \
+  DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
+  DESKTOP_APPGROUPS_SELECTED="browsers multimedia" \
+  COMPRESS_OUTPUTIMAGE="xz,sha" \
+  RELEASE=bookworm
