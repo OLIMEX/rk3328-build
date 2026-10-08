@@ -15,7 +15,7 @@ new file mode 100644
 index 0000000000..5bf31f78c0
 --- /dev/null
 +++ b/arch/arm/dts/rk3328-som.dts
-@@ -0,0 +1,288 @@
+@@ -0,0 +1,326 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd
@@ -87,6 +87,34 @@ index 0000000000..5bf31f78c0
 +		regulator-name = "vcc_phy";
 +		regulator-always-on;
 +		regulator-boot-on;
++	};
++
++	vcc_host1_5v: vcc-host1-5v-regulator {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_host_drv>;
++		regulator-name = "vcc_host1_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc_sys>;
++	};
++
++	vcc_host_vbus: host-vbus-regulator {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&host_vbus_drv>;
++		regulator-name = "vcc_host_vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc_sys>;
 +	};
 +};
 +
@@ -237,6 +265,16 @@ index 0000000000..5bf31f78c0
 +	pmic {
 +		pmic_int_l: pmic-int-l {
 +			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	usb {
++		usb20_host_drv: usb20-host-drv {
++			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		host_vbus_drv: host-vbus-drv {
++			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
 +		};
 +	};
 +

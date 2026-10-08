@@ -71,6 +71,7 @@
 		pinctrl-0 = <&usb20_host_drv>;
 		regulator-name = "vcc_host1_5v";
 		regulator-always-on;
+		regulator-boot-on;
 		vin-supply = <&vcc_sys>;
 	};
 
@@ -95,6 +96,7 @@
 		regulator-max-microvolt = <5000000>;
 		enable-active-high;
 		regulator-always-on;
+		regulator-boot-on;
 	};
 };
 

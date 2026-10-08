@@ -1,0 +1,16 @@
+Subject: [PATCH] phy: rockchip: inno-hdmi: add 29.57 MHz PLL configuration
+
+LCD-7HDMI advertises an 800x480 mode with a 29.57 MHz pixel clock.
+Use the existing 31.5 MHz dividers with a fractional feedback divider
+for a 946.24 MHz VCO, allowing RK3328 to use the display's own EDID.
+
+--- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
++++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
+@@ -295,6 +295,7 @@ static const struct pre_pll_config pre_pll_cfg_table[] = {
+ 	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
+ 	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
+ 	{ 27000000,  33750000,  1,   45, 0, 3, 3,  1, 3, 3,  4, 0,      0x0},
++	{ 29570000,  29570000,  1,   39, 0, 3, 3,  1, 2, 3,  4, 0, 0x6d3a07},
+ 	{ 31500000,  31500000,  1,   42, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
+ 	{ 31500000,  39375000,  1,  105, 1, 3, 3, 10, 0, 3,  4, 0,      0x0},
+ 	{ 33750000,  33750000,  1,   45, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
